@@ -1,0 +1,4 @@
+nose
+coverage
+Flask
+redis
