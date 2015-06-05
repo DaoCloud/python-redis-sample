@@ -15,9 +15,12 @@ def hello_world():
 class Storage():
   def __init__(self):
     self.redis = redis.Redis(
-      host=os.getenv('REDIS_PORT_6379_TCP_ADDR', 'localhost'),
-      port=int(os.getenv('REDIS_PORT_6379_TCP_PORT', '6379')),
-      password=os.getenv('REDIS_PASSWORD', ''))
+      # Fields (password) have fixed value provided by image daocloud/ci-redis
+      # While fields (host, port) have dynamic values, please use env vars to fetch them
+      host = os.getenv('REDIS_PORT_6379_TCP_ADDR'),
+      port = int(os.getenv('REDIS_PORT_6379_TCP_PORT')),
+      password = ''
+    )
 
   def populate(self):
     self.redis.set('score', '1234')

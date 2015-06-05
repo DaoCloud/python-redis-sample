@@ -3,14 +3,6 @@ image: daocloud/ci-python:2.7
 services:
   - redis
 
-env:
-  - PATH=/home/ubuntu/virtualenv/python2.7/bin:${PATH}
-  
-# using below default env set by docker-link 
-# env:
-# - REDIS_PORT_6379_TCP_ADDR=redis
-# - REDIS_PORT_6379_TCP_PORT=6379
-
 script:
   - pip install -r requirements.txt
   - mkdir -p daocloud/testresults
