@@ -3,6 +3,9 @@ image: daocloud/ci-python:2.7
 services:
   - redis
 
+env:
+  - REDIS_PASSWORD=""
+
 script:
   - pip install -r requirements.txt
   - mkdir -p daocloud/testresults
